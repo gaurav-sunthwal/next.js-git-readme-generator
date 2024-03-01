@@ -20,8 +20,7 @@ export default function Home() {
             </Heading>
             <Box w={"80%"} p={3}>
               <Heading color={"#737373"} textAlign={"center"} size={"md"}>
-                Our simple editor allows you to quickly add and customize all
-                the sections you need for your project's readme
+              Our simple editor allows you to quickly add and customize all the sections you need for your projects readme
               </Heading>
             </Box>
             <VStack>

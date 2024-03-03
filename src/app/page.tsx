@@ -1,4 +1,14 @@
-import { Box, Button, HStack, Heading, Text, VStack } from "@chakra-ui/react";
+"use client";
+
+import {
+  Box,
+  Button,
+  HStack,
+  Heading,
+  Text,
+  VStack,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import Image from "next/image";
 import Navbar from "./Components/Navbar";
 import Link from "next/link";
@@ -7,11 +17,17 @@ import { CiHeart } from "react-icons/ci";
 import dots from "../app/Img/worn-dots.png";
 import app from "../app/Img/app.webp";
 export default function Home() {
+  const [isGraterthen] = useMediaQuery("(min-width: 1000px)");
+
   return (
     <>
       <HStack p={3} justifyContent={"center"}>
         <Box>
-          <VStack p={2} justifyContent={"center"} h={"60vh"}>
+          <VStack
+            p={2}
+            justifyContent={"center"}
+            h={isGraterthen ? "80vh" : "auto"}
+          >
             <Heading size={"3xl"} textAlign={"center"}>
               The easiest way to create a <br />
             </Heading>
@@ -20,7 +36,8 @@ export default function Home() {
             </Heading>
             <Box w={"80%"} p={3}>
               <Heading color={"#737373"} textAlign={"center"} size={"md"}>
-              Our simple editor allows you to quickly add and customize all the sections you need for your projects readme
+                Our simple editor allows you to quickly add and customize all
+                the sections you need for your projects readme
               </Heading>
             </Box>
             <VStack>

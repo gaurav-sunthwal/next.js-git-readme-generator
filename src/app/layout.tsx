@@ -5,6 +5,7 @@ import "./globals.css";
 import { Providers } from "./providers";
 import AppFooter from "./Components/AppFooter";
 import { Box, useMediaQuery } from "@chakra-ui/react";
+import { AppWrapper } from "./Context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +24,8 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           <Navbar />
-          {children}
+          <Box h={"1vh"}></Box>
+          <AppWrapper>{children}</AppWrapper>
           <AppFooter />
         </Providers>
       </body>

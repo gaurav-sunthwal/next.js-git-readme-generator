@@ -39,7 +39,7 @@ export default function Main() {
         justifyContent={"center"}
       >
         <HStack justifyContent={"space-around"} flexWrap={"wrap"}>
-          <Box maxW={"50%"}>
+          <Box maxW={isGraterthen ? "50%" : "100%"}>
             <Heading m={2} padding={3} size={"3xl"} color={"#BBF7D0"} p={2}>
               Best Profile Generator
             </Heading>
@@ -67,7 +67,7 @@ export default function Main() {
               Create <span>Modal</span> Profile
             </Heading>
           </Box>
-          <Box maxW={"50%"}>
+          <Box maxW={isGraterthen ? "50%" : "100%"}>
             <Image alt="code" src={code} />
           </Box>
         </HStack>

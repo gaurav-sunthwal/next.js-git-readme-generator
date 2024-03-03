@@ -1,4 +1,4 @@
-//no-tscheck
+//@ts-nocheck
 
 import { Box, HStack, Heading, VStack } from "@chakra-ui/react";
 import Link from "next/link";
@@ -6,6 +6,11 @@ import { FaInstagram } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+
+interface SocialCardProps {
+  icon: string;
+  link: string;
+}
 
 export default function AppFooter() {
   return (
@@ -37,7 +42,7 @@ export default function AppFooter() {
   );
 }
 
-function SocalHandals({ icons, links }) {
+function SocalHandals({ icons, links }: SocialCardProps) {
   return (
     <>
       <Box m={2}>

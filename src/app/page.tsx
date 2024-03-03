@@ -24,7 +24,7 @@ export default function Home() {
               </Heading>
             </Box>
             <VStack>
-              <Link href={"/about"}>
+              <Link href={"/Main"}>
                 <Button
                   bg={"#10B981"}
                   _hover={{

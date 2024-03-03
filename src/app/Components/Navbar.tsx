@@ -8,7 +8,7 @@ import { IoMdMoon } from "react-icons/io";
 export default function Navbar() {
   return (
     <>
-      <HStack p={2} bg={"#171717"} justifyContent={"space-between"} mb={"12px"}>
+      <HStack p={2} bg={"black"} justifyContent={"space-between"} mb={"12px"}>
         <Box>
           <Image width={60} alt="Logo" src={logo} />
         </Box>

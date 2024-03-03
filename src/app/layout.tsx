@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import AppFooter from "./Components/AppFooter";
+import { Box, useMediaQuery } from "@chakra-ui/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +24,7 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           {children}
-          <AppFooter/>
+          <AppFooter />
         </Providers>
       </body>
     </html>

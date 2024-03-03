@@ -1,13 +1,18 @@
 "use client";
 
-import { Heading } from "@chakra-ui/react";
+import { Heading, Text, VStack } from "@chakra-ui/react";
 import { useAppContext } from "../Context";
+import HaderComponets from "../Components/HaderComponets";
 
 export default function Result() {
-  const { userName } = useAppContext();
+  const { userName, aboutMe } = useAppContext();
   return (
     <>
-      <Heading>UserName : {userName}</Heading>
+      <HaderComponets backLink={"/Main"} title={"Result"} />
+      <VStack>
+        <Heading>UserName : {userName}</Heading>
+        <Text>{aboutMe}</Text>
+      </VStack>
     </>
   );
 }

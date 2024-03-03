@@ -19,7 +19,7 @@ import { useAppContext } from "../Context";
 import { useRouter } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
 export default function Main() {
-  const [isGraterthen] = useMediaQuery("(min-width: 800px)");
+  const [isGraterthen] = useMediaQuery("(min-width: 1000px)");
   const [gitName, setGitName] = useState("");
   const { userName, setUserName } = useAppContext();
   const router = useRouter();
@@ -27,7 +27,7 @@ export default function Main() {
     e.preventDefault();
     setUserName(gitName);
     gitName != ""
-      ? router.push("/Result")
+      ? router.push("/About")
       : toast.error("Please enter UserName");
   }
   return (
@@ -47,6 +47,7 @@ export default function Main() {
               <form>
                 <HStack>
                   <Input
+                    type="username"
                     borderRadius={0}
                     border={"none"}
                     borderBottom={"2px"}

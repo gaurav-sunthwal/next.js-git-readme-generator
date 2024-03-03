@@ -25,7 +25,9 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           <Box h={"1vh"}></Box>
-          <AppWrapper>{children}</AppWrapper>
+          <AppWrapper>
+            <Box color={"#86EFAC"}>{children}</Box>
+          </AppWrapper>
           <AppFooter />
         </Providers>
       </body>

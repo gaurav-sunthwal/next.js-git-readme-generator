@@ -7,7 +7,7 @@ import { IoCaretBackSharp } from "react-icons/io5";
 export default function HaderComponets({ backLink, title }) {
   return (
     <>
-      <HStack p={2} justifyContent={"space-between"} color={"#BBF7D0"}>
+      <Box p={2} justifyContent={"space-between"} color={"#BBF7D0"}>
         <Box p={2}>
           <Link href={backLink}>
             <HStack>
@@ -22,7 +22,7 @@ export default function HaderComponets({ backLink, title }) {
           <Heading>{title}</Heading>
         </Box>
         <Box></Box>
-      </HStack>
+      </Box>
     </>
   );
 }

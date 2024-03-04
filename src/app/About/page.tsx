@@ -28,10 +28,9 @@ export default function About() {
   const [isGraterthen] = useMediaQuery("(min-width: 1200px)");
   const { setAboutMe } = useAppContext();
   const router = useRouter();
-
   function submitAboutMe() {
     setAboutMe(aboutMeText);
-    router.push("/Result");
+    router.push("/Status");
   }
   return (
     <>

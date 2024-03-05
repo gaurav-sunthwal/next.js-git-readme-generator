@@ -7,9 +7,9 @@ const AppContext = createContext<any>(undefined);
 export function AppWrapper({ children }: { children: React.ReactNode }) {
   let [userName, setUserName] = useState("gaurav-sunthwal");
   let [aboutMe, setAboutMe] = useState("Gaurav Sunthwal");
-  const [border, getBorder] = useState(false);
-  const [pcommits, getpCommits] = useState(false);
-  const [Lcommits, getLCommits] = useState(false);
+  const [stats1 , getStatus1] = useState('')
+  const [stats2 , getStatus2] = useState('')
+  const [stats3 , getStatus3] = useState('')
 
   return (
     <AppContext.Provider
@@ -18,9 +18,12 @@ export function AppWrapper({ children }: { children: React.ReactNode }) {
         setUserName,
         aboutMe,
         setAboutMe,
-        getBorder,
-        getpCommits,
-        getLCommits,
+        stats1,
+        stats2,
+        stats3,
+        getStatus1,
+        getStatus2,
+        getStatus3
       }}
     >
       {children}

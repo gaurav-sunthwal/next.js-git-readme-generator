@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+body {
   background-color: #171717 !important;
   color: white !important;
+}
+
+input:focus {
+  outline: none !important;
 }

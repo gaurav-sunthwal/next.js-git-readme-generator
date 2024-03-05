@@ -21,16 +21,17 @@ export default function Status() {
   const [border, setBorder] = useState(false);
   const [pcommits, setpCommits] = useState(false);
   const [Lcommits, setLCommits] = useState(false);
-  const { userName, getBorder, getpCommits, getLCommits } = useAppContext();
+  const { userName, getStatus1 , getStatus2, getStatus3 } = useAppContext();
   let State1 = `https://github-readme-stats.vercel.app/api?username=${userName}&theme=${theme}&hide_border=${border}&include_all_commits=${pcommits}&count_private=${Lcommits}`;
   let State2 = `https://github-readme-streak-stats.herokuapp.com/?user=${userName}&theme=${theme}&hide_border=${border}`;
   let State3 = `https://github-readme-stats.vercel.app/api/top-langs/?username=${userName}&theme=${theme}&hide_border=${border}&include_all_commits=${pcommits}&count_private=${Lcommits}&layout=compact`;
   let router = useRouter();
   function submitStatus() {
-    getBorder(setBorder);
-    getLCommits(setLCommits);
-    getpCommits(setpCommits);
-    router.push("/Result");
+    console.log(State1);
+    getStatus1(State1)
+    getStatus2(State2)
+    getStatus3(State3)
+    router.push("/SocalMedia");
   }
   return (
     <>
@@ -117,7 +118,7 @@ function StatusImg({ imgSrc }) {
   return (
     <>
       <Box p={2}>
-        <Image w={"500px"} src={imgSrc} alt="Stats-1" />
+        <Image w={"500px"} src={imgSrc} alt="Stats" />
       </Box>
     </>
   );

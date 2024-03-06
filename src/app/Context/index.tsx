@@ -1,5 +1,5 @@
-"use client";
 //@ts-nocheck
+"use client";
 import React, { createContext, useContext, useState } from "react";
 
 const AppContext = createContext<any>(undefined);
@@ -7,10 +7,28 @@ const AppContext = createContext<any>(undefined);
 export function AppWrapper({ children }: { children: React.ReactNode }) {
   let [userName, setUserName] = useState("gaurav-sunthwal");
   let [aboutMe, setAboutMe] = useState("Gaurav Sunthwal");
-  const [stats1 , getStatus1] = useState('')
-  const [stats2 , getStatus2] = useState('')
-  const [stats3 , getStatus3] = useState('')
-
+  const [stats1, getStatus1] = useState("");
+  const [stats2, getStatus2] = useState("");
+  const [stats3, getStatus3] = useState("");
+  const [links, setLinks] = useState({
+    facebook: "",
+    X: "",
+    instagram: "",
+    Behance: "",
+    Discord: "",
+    Linkedin: "in/",
+    Codepen: "",
+    Youtube: "@",
+    StackOverflow: "",
+    Reddit: "",
+    Pinterest: "",
+    Twitch: "",
+    Medium: "",
+    Mastodon: "",
+    Tiktok: "",
+    Quora: "",
+  });
+  
   return (
     <AppContext.Provider
       value={{
@@ -23,7 +41,10 @@ export function AppWrapper({ children }: { children: React.ReactNode }) {
         stats3,
         getStatus1,
         getStatus2,
-        getStatus3
+        getStatus3,
+        links,
+        setLinks,
+        
       }}
     >
       {children}

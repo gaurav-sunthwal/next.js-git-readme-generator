@@ -15,13 +15,14 @@ import {
 import { useState } from "react";
 import { useAppContext } from "../Context";
 import { useRouter } from "next/navigation";
+import NextBtn from "../Components/NextBtn";
 
 export default function Status() {
   const [theme, setTheme] = useState("gruvbox");
   const [border, setBorder] = useState(false);
   const [pcommits, setpCommits] = useState(false);
   const [Lcommits, setLCommits] = useState(false);
-  const { userName, getStatus1 , getStatus2, getStatus3 } = useAppContext();
+  const { userName, getStatus1 , getStatus2, getStatus3  } = useAppContext();
   let State1 = `https://github-readme-stats.vercel.app/api?username=${userName}&theme=${theme}&hide_border=${border}&include_all_commits=${pcommits}&count_private=${Lcommits}`;
   let State2 = `https://github-readme-streak-stats.herokuapp.com/?user=${userName}&theme=${theme}&hide_border=${border}`;
   let State3 = `https://github-readme-stats.vercel.app/api/top-langs/?username=${userName}&theme=${theme}&hide_border=${border}&include_all_commits=${pcommits}&count_private=${Lcommits}&layout=compact`;
@@ -98,18 +99,7 @@ export default function Status() {
             <StatusImg imgSrc={State3} />
           </HStack>
         </VStack>
-        <VStack>
-          <Box m={3}>
-            <Button
-              color={"white"}
-              border={"2px solid"}
-              bg={"transparent"}
-              onClick={submitStatus}
-            >
-              Next
-            </Button>
-          </Box>
-        </VStack>
+        <NextBtn handalOnClick={submitStatus}/>
       </Box>
     </>
   );

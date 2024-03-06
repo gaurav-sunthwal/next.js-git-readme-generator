@@ -18,7 +18,7 @@ export default function Navbar() {
         zIndex={43}
       >
         <Box>
-          <Link href={"/home"}>
+          <Link href={"/"}>
             <Image width={60} alt="Logo" src={logo} />
           </Link>
         </Box>
@@ -38,6 +38,7 @@ export default function Navbar() {
           </Box>
         </HStack>
       </HStack>
+      
     </>
   );
 }

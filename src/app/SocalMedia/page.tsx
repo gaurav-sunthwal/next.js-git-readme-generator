@@ -169,6 +169,7 @@ function SocialLinks({ socalTitle, socalIcon, link, getLink }) {
             w={"100%"}
             type="name"
             border={"0px solid"}
+            outline={"transparent"}
             borderRadius={0}
             placeholder={socalTitle}
             borderBottom={"2px solid"}

@@ -7,6 +7,7 @@ body {
   color: white !important;
 }
 
-input:focus {
+.donate input:focus {
   outline: none !important;
+  border: transparent !important;
 }

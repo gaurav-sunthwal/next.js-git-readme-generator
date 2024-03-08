@@ -7,7 +7,8 @@ import HaderComponets from "../Components/HaderComponets";
 import Link from "next/link";
 
 export default function Result() {
-  const { userName, aboutMe, stats1, stats2, stats3, links , skills} = useAppContext();
+  const { userName, aboutMe, stats1, stats2, stats3, links, skills , payment} =
+    useAppContext();
   // console.log({...links});
 
   return (
@@ -58,7 +59,7 @@ export default function Result() {
                 <Box>
                   <Image
                     w={"100%"}
-                    src={`https://skillicons.dev/icons?i=${item}`}
+                    src={`https://skillicons.dev/icons?i=${item.toLowerCase()}`}
                     alt={item}
                   />
                 </Box>
@@ -66,6 +67,15 @@ export default function Result() {
             );
           })}
         </HStack>
+        {
+          Object.keys(payment).map((key)=>{
+            return(
+              <>
+                <Heading>{payment[key]}</Heading>
+              </>
+            )
+          })
+        }
       </VStack>
     </>
   );

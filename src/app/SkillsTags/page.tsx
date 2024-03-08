@@ -35,7 +35,7 @@ export default function SkillsTags() {
   } = useAppContext();
   const router = useRouter();
   function submitSkills() {
-    router.push("/Result");
+    router.push("/Donate");
   }
   return (
     <>

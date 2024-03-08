@@ -7,7 +7,7 @@ import HaderComponets from "../Components/HaderComponets";
 import Link from "next/link";
 
 export default function Result() {
-  const { userName, aboutMe, stats1, stats2, stats3, links } = useAppContext();
+  const { userName, aboutMe, stats1, stats2, stats3, links , skills} = useAppContext();
   // console.log({...links});
 
   return (
@@ -30,7 +30,8 @@ export default function Result() {
           {Object.keys(links).map((key) => {
             return (
               <>
-                {(links[key] !== "" && links[key] !== "in/") &&
+                {links[key] !== "" &&
+                links[key] !== "in/" &&
                 links[key] !== "@" ? (
                   <Link
                     target="_blank"
@@ -46,6 +47,21 @@ export default function Result() {
                 ) : (
                   ""
                 )}
+              </>
+            );
+          })}
+        </HStack>
+        <HStack p={2} justifyContent={"center"} flexWrap={"wrap"}>
+          {skills.map((item, index) => {
+            return (
+              <>
+                <Box>
+                  <Image
+                    w={"100%"}
+                    src={`https://skillicons.dev/icons?i=${item}`}
+                    alt={item}
+                  />
+                </Box>
               </>
             );
           })}

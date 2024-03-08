@@ -6,51 +6,37 @@ import {
   Button,
   HStack,
   Heading,
+  Image,
   Input,
   Text,
   VStack,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import HaderComponets from "../Components/HaderComponets";
-import skills from "../Img/skills.png";
-import Image from "next/image";
 import { FaSearch } from "react-icons/fa";
+import { useAppContext } from "../Context";
+import { useState } from "react";
+import { IoMdAdd } from "react-icons/io";
+import { TiTick } from "react-icons/ti";
+import NextBtn from "../Components/NextBtn";
+import { useRouter } from "next/navigation";
+import skillImg from "../Img/skills.png";
 export default function SkillsTags() {
-  const LANGUAGESArr = [
-    "en",
-    "dfv",
-    "he",
-    "dsffv",
-    "dzfg",
-    "dsffv",
-    "dzfg",
-    "he",
-    "dsffv",
-    "dzfg",
-    ,
-    "he",
-    "dsffv",
-    "dzfg",
-    ,
-    "he",
-    "dsffv",
-    "dzfg",
-    ,
-    "he",
-    "dsffv",
-    "dzfg",
-    ,
-    "he",
-    "dsffv",
-    "dzfg",
-    ,
-    "he",
-    "dsffv",
-    "dzfg",
-    ,
-    "he",
-    "dsffv",
-    "dzfg",
-  ];
+  const [isGraterthen] = useMediaQuery("(min-width: 700px)");
+  const {
+    skills,
+    searchfor,
+    setSearchfor,
+    LANGUAGESArr,
+    Hosting,
+    allTech,
+    Database,
+    other,
+  } = useAppContext();
+  const router = useRouter();
+  function submitSkills() {
+    router.push("/Result");
+  }
   return (
     <>
       <HaderComponets
@@ -64,48 +50,89 @@ export default function SkillsTags() {
             p={6}
             w={"30%"}
             borderRadius={"50px"}
-            p={3}
+            value={searchfor}
+            onChange={(e) => {
+              setSearchfor(e.target.value);
+            }}
           />
           <Button borderRadius={"50px"}>
             <FaSearch />
           </Button>
         </HStack>
       </VStack>
-      <HStack>
-        <Box maxW={"50%"} p={3}>
-          <Image alt="skillsPNG" src={skills} />
-        </Box>
-        <Box maxW={"50%"}>
-          <SkillsSec title={"LANGUAGES"} arrName={LANGUAGESArr} />
-        </Box>
+
+      <Box p={3}>
+        <SkillsSec
+          title={`FRAMEWORKS, PLATFORMS & LIBRARIES`}
+          arrName={allTech}
+        />
+        <SkillsSec title={"LANGUAGES"} arrName={LANGUAGESArr} />
+        <SkillsSec title={"Hosting/SaaS"} arrName={Hosting} />
+        <SkillsSec title={`DATABASES`} arrName={Database} />
+        <SkillsSec title={"Other"} arrName={other} />
+      </Box>
+      <HStack p={2} justifyContent={"center"} flexWrap={"wrap"}>
+        {skills.map((item, index) => {
+          return (
+            <>
+              <Box>
+                <Image
+                  w={"100%"}
+                  src={`https://skillicons.dev/icons?i=${item.toLowerCase()}`}
+                  alt={item}
+                />
+              </Box>
+            </>
+          );
+        })}
       </HStack>
+      <VStack>
+        <NextBtn handalOnClick={submitSkills} />
+      </VStack>
     </>
   );
 }
 
 function SkillsSec({ title, arrName }) {
+  const { skills, setSkills, searchfor } = useAppContext();
+  const [add, setAdd] = useState(false);
+  const filteredData = arrName.filter((item) =>
+    item.toLowerCase().includes(searchfor.toLowerCase())
+  );
+
   return (
-    <Box textAlign={"center"}>
+    <Box textAlign={"center"} p={3}>
       <Heading p={"2"} size={"md"}>
         {title}
       </Heading>
       <HStack flexWrap={"wrap"} justifyContent={"center"}>
-        {arrName.map((item, index) => {
+        {filteredData.map((item, index) => {
           return (
             <Box
+              onClick={(e) => {
+                const allSkills = [...skills, item];
+                skills.includes(item)
+                  ? setSkills(allSkills.filter((skill) => skill !== item))
+                  : setSkills(allSkills);
+              }}
+              cursor={"pointer"}
               key={index}
               bg={"#DCFCE7"}
               color={"black"}
               p={2}
+              m={1}
               borderRadius={"5px"}
             >
               <HStack>
                 <Box>
-                  <Heading size={"sm"} key={index}>
-                    {item}
+                  <Text fontWeight={"400"}>{item}</Text>
+                </Box>
+                <Box>|</Box>
+                <Box>
+                  <Heading size={"md"}>
+                    {skills.includes(item) ? <TiTick /> : <IoMdAdd />}
                   </Heading>
                 </Box>
-                <Box>| +</Box>
               </HStack>
             </Box>
           );

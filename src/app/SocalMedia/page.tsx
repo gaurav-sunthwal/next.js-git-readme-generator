@@ -46,7 +46,7 @@ export default function SocalMedia() {
     });
   };
   function submitSocalMedia() {
-    router.push("/Result")
+    router.push("/SkillsTags")
   }
   return (
     <>

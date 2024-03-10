@@ -1,19 +1,57 @@
 //@ts-nocheck
 "use client";
 
-import { Box, HStack, Heading, Image, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  HStack,
+  Heading,
+  Image,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import { useAppContext } from "../Context";
 import HaderComponets from "../Components/HaderComponets";
 import Link from "next/link";
 
 export default function Result() {
-  const { userName, aboutMe, stats1, stats2, stats3, links, skills , payment} =
+  const { userName, aboutMe, stats1, stats2, stats3, links, skills, payment } =
     useAppContext();
   // console.log({...links});
 
   return (
     <>
-      <HaderComponets backLink={"/Main"} title={"Result"} />
+      <HaderComponets backLink={"/AddMore"} title={"Result"} />
+      <HStack justifyContent={"center"} flexWrap={"wrap"}>
+        <ResultBtn title={"Copy Code"} />
+        <ResultBtn title={"Download Markdown File"} />
+        <ResultBtn title={"Create New"} />
+      </HStack>
+      <HStack justifyContent={"center"} p={2} m={2} border={"2px solid"}>
+        <VStack>
+          <Heading textAlign={"center"} size={"lg"}>
+            Priview
+          </Heading>
+          <Priview />
+        </VStack>
+      </HStack>
+    </>
+  );
+}
+
+function ResultBtn({ title, handalClick }) {
+  return (
+    <Button m={2} className="nextBtn" onClick={handalClick}>
+      {title}
+    </Button>
+  );
+}
+
+function Priview() {
+  const { userName, aboutMe, stats1, stats2, stats3, links, skills, payment } =
+    useAppContext();
+  return (
+    <>
       <VStack>
         <Heading>UserName : {userName}</Heading>
         <Text>{aboutMe}</Text>
@@ -67,15 +105,13 @@ export default function Result() {
             );
           })}
         </HStack>
-        {
-          Object.keys(payment).map((key)=>{
-            return(
-              <>
-                <Heading>{payment[key]}</Heading>
-              </>
-            )
-          })
-        }
+        {Object.keys(payment).map((key) => {
+          return (
+            <>
+              <Heading>{payment[key]}</Heading>
+            </>
+          );
+        })}
       </VStack>
     </>
   );

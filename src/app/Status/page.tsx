@@ -22,7 +22,7 @@ export default function Status() {
   const [border, setBorder] = useState(false);
   const [pcommits, setpCommits] = useState(false);
   const [Lcommits, setLCommits] = useState(false);
-  const { userName, getStatus1 , getStatus2, getStatus3  } = useAppContext();
+  const { userName, getStatus1 , getStatus2, getStatus3 , colors   } = useAppContext();
   let State1 = `https://github-readme-stats.vercel.app/api?username=${userName}&theme=${theme}&hide_border=${border}&include_all_commits=${pcommits}&count_private=${Lcommits}`;
   let State2 = `https://github-readme-streak-stats.herokuapp.com/?user=${userName}&theme=${theme}&hide_border=${border}`;
   let State3 = `https://github-readme-stats.vercel.app/api/top-langs/?username=${userName}&theme=${theme}&hide_border=${border}&include_all_commits=${pcommits}&count_private=${Lcommits}&layout=compact`;
@@ -47,13 +47,13 @@ export default function Status() {
                 setTheme(e.target.value);
               }}
             >
-              <option value="default">default</option>
-              <option value="monokai">monokai</option>
-              <option value="gruvbox">gruvbox</option>
-              <option value="algolia">algolia</option>
-              <option value="bear">bear</option>
-              <option value="nord">nord</option>
-              <option value="shades-of-purple">shades-of-purple</option>
+              {colors.map((item , index) => {
+                return(
+                  <>
+                    <option value={item}>{item}</option>
+                  </>
+                )
+              })}
             </Select>
           </HStack>
           <HStack justifyContent={"center"} flexWrap={"wrap"}>

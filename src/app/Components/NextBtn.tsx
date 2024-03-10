@@ -7,12 +7,7 @@ export default function NextBtn({ handalOnClick }) {
     <>
       <VStack>
         <Box m={3}>
-          <Button
-            color={"white"}
-            border={"2px solid"}
-            bg={"transparent"}
-            onClick={handalOnClick}
-          >
+          <Button className="nextBtn" onClick={handalOnClick}>
             Next
           </Button>
         </Box>

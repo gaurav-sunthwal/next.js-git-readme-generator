@@ -6,31 +6,22 @@ import logo from "../Img/GR.jpeg";
 import { IoMdMoon } from "react-icons/io";
 import Link from "next/link";
 import { CiCoffeeCup } from "react-icons/ci";
-
+import bmc from "../Img/bmc.svg";
 export default function Navbar() {
   return (
     <>
-      <HStack
-        p={2}
-        bg={"black"}
-        justifyContent={"space-between"}
-        mb={"12px"}
-        zIndex={43}
-      >
+      <HStack p={4} bg={"black"} justifyContent={"space-between"} zIndex={43}>
         <Box>
           <Link href={"/"}>
             <Image width={60} alt="Logo" src={logo} />
           </Link>
         </Box>
         <HStack>
-          <Box fontSize={"30px"} onClick={() => {}}>
-            <IoMdMoon />
-          </Box>
           <Box>
             <Link href={"https://paypal.me/gauravsunthwal"}>
-              <Button bg={"#86EFAC"} borderRadius={20}>
-                <Box color={"green"}>
-                  <CiCoffeeCup />
+              <Button className="nextBtn" borderRadius={20}>
+                <Box w={"30px"} p={2}>
+                  <Image src={bmc} alt="bmc" />
                 </Box>
                 Donate us
               </Button>
@@ -38,7 +29,6 @@ export default function Navbar() {
           </Box>
         </HStack>
       </HStack>
-      
     </>
   );
 }

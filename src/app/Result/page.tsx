@@ -14,12 +14,25 @@ import {
 import { useAppContext } from "../Context";
 import HaderComponets from "../Components/HaderComponets";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Result() {
   const { userName, aboutMe, stats1, stats2, stats3, links, skills, payment } =
     useAppContext();
   // console.log({...links});
   const [isGraterthen] = useMediaQuery("(min-width: 1000px)");
+
+  const [code, setCode] = useState("working on it...");
+  const copyToClipboard = () => {
+    navigator.clipboard
+      .writeText(code)
+      .then(() => {
+        alert("Text copied to clipboard!");
+      })
+      .catch((err) => {
+        console.error("Failed to copy: ", err);
+      });
+  };
   return (
     <>
       <HaderComponets
@@ -27,7 +40,7 @@ export default function Result() {
         title={"Your Awesome Profile is ready !"}
       />
       <HStack justifyContent={"center"} flexWrap={"wrap"}>
-        <ResultBtn title={"Copy Code"} />
+        <ResultBtn title={"Copy Code"} handalClick={copyToClipboard} />
         <ResultBtn title={"Download Markdown File"} />
         <ResultBtn title={"Create New"} />
       </HStack>

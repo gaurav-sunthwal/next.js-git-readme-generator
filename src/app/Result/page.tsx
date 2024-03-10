@@ -15,8 +15,13 @@ import { useAppContext } from "../Context";
 import HaderComponets from "../Components/HaderComponets";
 import Link from "next/link";
 import { useState } from "react";
+import { FaRegCopy } from "react-icons/fa";
+import { FaDownload } from "react-icons/fa6";
+import { FcProcess } from "react-icons/fc";
+import { useRouter } from "next/navigation";
 
 export default function Result() {
+  const Router = useRouter();
   const { userName, aboutMe, stats1, stats2, stats3, links, skills, payment } =
     useAppContext();
   // console.log({...links});
@@ -40,9 +45,19 @@ export default function Result() {
         title={"Your Awesome Profile is ready !"}
       />
       <HStack justifyContent={"center"} flexWrap={"wrap"}>
-        <ResultBtn title={"Copy Code"} handalClick={copyToClipboard} />
-        <ResultBtn title={"Download Markdown File"} />
-        <ResultBtn title={"Create New"} />
+        <ResultBtn
+          title={"Copy Code"}
+          handalClick={copyToClipboard}
+          icon={<FaRegCopy />}
+        />
+        <ResultBtn title={"Download Markdown File"} icon={<FaDownload />} />
+        <ResultBtn
+          title={"Create New"}
+          icon={<FcProcess />}
+          handalClick={() => {
+            Router.push("/Main");
+          }}
+        />
       </HStack>
       <Box m={5}>
         <HStack justifyContent={"center"}>
@@ -67,10 +82,15 @@ export default function Result() {
   );
 }
 
-function ResultBtn({ title, handalClick }) {
+function ResultBtn({ title, handalClick, icon }) {
   return (
     <Button m={2} className="nextBtn" onClick={handalClick}>
-      {title}
+      <HStack>
+        <Box>{title}</Box>
+        <Box>
+          <Heading size={"md"}>{icon}</Heading>
+        </Box>
+      </HStack>
     </Button>
   );
 }

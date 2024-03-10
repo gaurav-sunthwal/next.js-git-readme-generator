@@ -21,6 +21,7 @@ import { TiTick } from "react-icons/ti";
 import NextBtn from "../Components/NextBtn";
 import { useRouter } from "next/navigation";
 import skillImg from "../Img/skills.png";
+
 export default function SkillsTags() {
   const [isGraterthen] = useMediaQuery("(min-width: 700px)");
   const {

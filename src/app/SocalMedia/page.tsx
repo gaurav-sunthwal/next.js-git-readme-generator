@@ -46,7 +46,7 @@ export default function SocalMedia() {
     });
   };
   function submitSocalMedia() {
-    router.push("/SkillsTags")
+    router.push("/SkillsTags");
   }
   return (
     <>
@@ -175,6 +175,9 @@ function SocialLinks({ socalTitle, socalIcon, link, getLink }) {
             borderBottom={"2px solid"}
             value={link}
             onChange={getLink}
+            _focus={{
+              boxShadow: "none",
+            }}
           />
           <Box>
             <Heading>{socalIcon}</Heading>

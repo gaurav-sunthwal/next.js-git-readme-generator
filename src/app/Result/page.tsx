@@ -58,10 +58,10 @@ export default function Result() {
             bg={"#BBF7D0"}
             color={"black"}
           >
-            Priview
+            Preview
           </Text>
         </HStack>
-        <Priview />
+        <Preview />
       </Box>
     </>
   );
@@ -75,7 +75,7 @@ function ResultBtn({ title, handalClick }) {
   );
 }
 
-function Priview() {
+function Preview() {
   const [isGraterthen] = useMediaQuery("(min-width: 1000px)");
   const { userName, aboutMe, stats1, stats2, stats3, links, skills, payment } =
     useAppContext();

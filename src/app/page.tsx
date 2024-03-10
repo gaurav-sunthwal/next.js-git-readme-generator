@@ -3,6 +3,7 @@
 import {
   Box,
   Button,
+  Card,
   HStack,
   Heading,
   Text,
@@ -15,7 +16,7 @@ import Link from "next/link";
 import { CiHeart } from "react-icons/ci";
 
 import dots from "../app/Img/worn-dots.png";
-import app from "../app/Img/app.webp";
+import app from "../app/Img/app.png";
 export default function Home() {
   const [isGraterthen] = useMediaQuery("(min-width: 1000px)");
 
@@ -26,7 +27,7 @@ export default function Home() {
           <VStack
             p={2}
             justifyContent={"center"}
-            h={isGraterthen ? "80vh" : "auto"}
+            h={isGraterthen ? "50vh" : "auto"}
           >
             <Heading size={"3xl"} textAlign={"center"}>
               The easiest way to create a <br />
@@ -67,8 +68,8 @@ export default function Home() {
           </VStack>
         </Box>
       </HStack>
-      <VStack justifyContent={"center"} p={3} mt={"20px"}>
-        <Box w={"90%"}>
+      <VStack justifyContent={"center"} p={3} mt={"10px"}>
+        <Box w={"70%"}>
           <Image src={app} alt="app" />
         </Box>
       </VStack>

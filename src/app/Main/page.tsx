@@ -53,6 +53,9 @@ export default function Main() {
                     borderBottom={"2px"}
                     placeholder="Enter Your GitHub Username"
                     value={gitName}
+                    _focus={{
+                      boxShadow: "none",
+                    }}
                     onChange={(e) => {
                       setGitName(e.target.value);
                     }}

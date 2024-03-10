@@ -48,7 +48,7 @@ export default function SkillsTags() {
           <Input
             placeholder="Search.."
             p={6}
-            w={"30%"}
+            w={isGraterthen ? "30%" : "80%"}
             borderRadius={"50px"}
             value={searchfor}
             onChange={(e) => {

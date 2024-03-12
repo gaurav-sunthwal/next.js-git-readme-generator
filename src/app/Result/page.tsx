@@ -106,6 +106,7 @@ export default function Result() {
           title={"Copy Code"}
           handalClick={copyToClipboard}
           icon={<FaRegCopy />}
+          
         />
         <ResultBtn title={"Download Markdown File"} icon={<FaDownload />} />
         <ResultBtn

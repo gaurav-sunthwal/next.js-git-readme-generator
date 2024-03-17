@@ -6,7 +6,7 @@ import { Providers } from "./providers";
 import AppFooter from "./Components/AppFooter";
 import { Box, useMediaQuery } from "@chakra-ui/react";
 import { AppWrapper } from "./Context";
-
+import { Analytics } from "@vercel/analytics/react"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -26,6 +26,7 @@ export default function RootLayout({
       <meta name="google-site-verification" content="4S-SnEkKgabU7Yr4avzDYY7XrbS0BRFh9hpZA8P6uLk" />
       </head>
       <body className={inter.className}>
+        <Analytics/>
         <Providers>
           <Navbar />
           <Box h={"1vh"}></Box>

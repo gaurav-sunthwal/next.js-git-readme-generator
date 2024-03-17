@@ -80,19 +80,19 @@ function Inputs({ title, imgSrc, addPayment }) {
   return (
     <>
       <HStack p={2} m={3} w={"100%"}>
-        <Box w={"100%"}>
-          <Input
-            type="name"
-            w={"100%"}
-            border={"none"}
-            borderRadius={0}
-            fontSize={"20px"}
-            p={3}
-            borderBottom={"2px solid"}
-            placeholder={title}
-            onChange={addPayment}
-          />
-        </Box>
+        <Input
+          w={"100%"}
+          type="name"
+          border={"0px solid"}
+          outline={"transparent"}
+          borderRadius={0}
+          placeholder={title}
+          borderBottom={"2px solid"}
+          onChange={addPayment}
+          _focus={{
+            boxShadow: "none",
+          }}
+        />
         <Box m={4}>
           <VStack
             justifyContent={"center"}

@@ -19,12 +19,12 @@ import { FaRegCopy } from "react-icons/fa";
 import { FaDownload } from "react-icons/fa6";
 import { FcProcess } from "react-icons/fc";
 import { useRouter } from "next/navigation";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function Result() {
   const Router = useRouter();
   const { userName, aboutMe, stats1, stats2, stats3, links, skills, payment } =
     useAppContext();
-  // console.log({...links});
   const [isGraterthen] = useMediaQuery("(min-width: 1000px)");
 
   const [code, setCode] = useState("working on it...");
@@ -33,7 +33,7 @@ export default function Result() {
     navigator.clipboard
       .writeText(markdownContent)
       .then(() => {
-        alert("Markdown content copied to clipboard!");
+        toast.success("Copied to clipboard!");
       })
       .catch((err) => {
         console.error("Failed to copy: ", err);
@@ -42,40 +42,36 @@ export default function Result() {
 
   const generateMarkdownContent = () => {
     // Construct markdown content based on the preview data
-    
 
     let markdownContent = `# ${userName}'s Profile\n\n`;
 
     // Add about me section
     if (aboutMe !== "") {
-      markdownContent += `## About Me\n\n${aboutMe}\n\n`;
+      markdownContent += `# 💫 About Me:\n\n${aboutMe}\n\n`;
     }
 
     // Add socials section
-    markdownContent += `## Socials\n\n`;
+    markdownContent += `# 🌐 Socials:\n\n`;
     Object.keys(links).forEach((key) => {
       if (links[key] !== "" && links[key] !== "in/" && links[key] !== "@") {
-        markdownContent += `![${key}](${generateBadgeURL(
-          key,
-          links[key]
-        )})\n\n`;
+        markdownContent += `![${key}](${generateBadgeURL(key, links[key])})\n`;
       }
     });
 
     // Add tech stack section
-    markdownContent += `## Tech Stack\n\n`;
+    markdownContent += `# 💻 Tech Stack:\n\n`;
     skills.forEach((item) => {
-      markdownContent += `![${item}](${generateSkillIconURL(item)})\n\n`;
+      markdownContent += `![${item}](${generateSkillIconURL(item)})\n`;
     });
 
     // Add GitHub stats section
-    markdownContent += `## GitHub Stats\n\n`;
+    markdownContent += `# 📊 GitHub Stats:\n\n`;
     markdownContent += `![Stats 1](${stats1})\n\n`;
     markdownContent += `![Stats 2](${stats2})\n\n`;
     markdownContent += `![Stats 3](${stats3})\n\n`;
 
     // Add donation section
-    markdownContent += `## Donate\n\n`;
+    markdownContent += `# 💰 You can help me by Donating\n\n`;
     Object.keys(payment).forEach((key) => {
       if (key === "bmc") {
         markdownContent += `[![Buy Me a Coffee](${generateBadgeURL(
@@ -97,6 +93,7 @@ export default function Result() {
   };
   return (
     <>
+      <Toaster />
       <HaderComponets
         backLink={"/AddMore"}
         title={"Your Awesome Profile is ready !"}
@@ -106,9 +103,8 @@ export default function Result() {
           title={"Copy Code"}
           handalClick={copyToClipboard}
           icon={<FaRegCopy />}
-          
         />
-        <ResultBtn title={"Download Markdown File"} icon={<FaDownload />} />
+        {/* <ResultBtn title={"Download Markdown File"} icon={<FaDownload />} /> */}
         <ResultBtn
           title={"Create New"}
           icon={<FcProcess />}

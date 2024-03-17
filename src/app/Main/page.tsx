@@ -13,11 +13,13 @@ import {
 } from "@chakra-ui/react";
 import Image from "next/image";
 import code from "../Img/image.png";
+import { GrLinkNext } from "react-icons/gr";
 import Link from "next/link";
 import { useState } from "react";
 import { useAppContext } from "../Context";
 import { useRouter } from "next/navigation";
 import toast, { Toaster } from "react-hot-toast";
+import NextBtn from "../Components/NextBtn";
 export default function Main() {
   const [isGraterthen] = useMediaQuery("(min-width: 1000px)");
   const [gitName, setGitName] = useState("");
@@ -61,8 +63,8 @@ export default function Main() {
                     }}
                     required
                   />
-                  <Button bg={"#86EFAC"} type="submit" onClick={handalSearch}>
-                    Go!!
+                  <Button type="submit" className="nextBtn" onClick={handalSearch}>
+                    <GrLinkNext />
                   </Button>
                 </HStack>
               </form>

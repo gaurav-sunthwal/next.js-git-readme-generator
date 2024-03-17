@@ -7,7 +7,7 @@ export default function NextBtn({ handalOnClick }) {
     <>
       <VStack>
         <Box m={3}>
-          <Button className="nextBtn" onClick={handalOnClick}>
+          <Button  className="nextBtn" onClick={handalOnClick}>
             Next
           </Button>
         </Box>

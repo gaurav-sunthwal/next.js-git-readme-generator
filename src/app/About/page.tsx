@@ -16,6 +16,7 @@ import { TbBulb } from "react-icons/tb";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAppContext } from "../Context";
+import NextBtn from "../Components/NextBtn";
 
 let AboutMeData = `🔭 I'm currently working on
 👯 I'm looking to collaborate on
@@ -76,7 +77,7 @@ export default function About() {
                   <TbBulb />
                 </Box>
                 <Box ml={3}>
-                  <Button onClick={submitAboutMe}>Next</Button>
+                  <NextBtn handalOnClick={submitAboutMe} />
                 </Box>
               </HStack>
             </VStack>

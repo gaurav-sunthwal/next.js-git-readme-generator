@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Generate Readme",
   description:
-    "Generate Readme : Create your perfect GitHub Profile ReadMe in the best possible way. Lots of features and tools included, all for free !",
+    "Generate Readme By Gaurav Sunthwal : Create your perfect GitHub Profile ReadMe in the best possible way. Lots of features and tools included, all for free !",
 };
 
 export default function RootLayout({

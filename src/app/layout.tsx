@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-      <meta name="google-site-verification" content="4S-SnEkKgabU7Yr4avzDYY7XrbS0BRFh9hpZA8P6uLk" />
+      <meta name="google-site-verification" content="brnrAvH6YNLyRPlnUkA-3zemJp4es-Q9WvGhuEnt-no" />
       </head>
       <body className={inter.className}>
         <Analytics/>

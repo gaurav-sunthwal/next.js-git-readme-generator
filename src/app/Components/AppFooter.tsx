@@ -17,7 +17,7 @@ export default function AppFooter() {
     <>
       <VStack h={"25vh"} justifyContent={"center"} bg={"black"}>
         <Heading color={"#737373"} size={"md"} textAlign={"center"}>
-          Made with ♡ by Gaurav Sunthwal
+          Made with ♡ by <Link target="blank" href={"https://gaurav-sunthwal.vercel.app"}>Gaurav Sunthwal</Link> 
         </Heading>
         <HStack justifyContent={"center"} m={1}>
           <SocalHandals
@@ -46,7 +46,7 @@ function SocalHandals({ icons, links }: SocialCardProps) {
   return (
     <>
       <Box m={2}>
-        <Link href={links}>
+        <Link href={links} target="blank">
           <Heading size={"lg"}>{icons}</Heading>
         </Link>
       </Box>

@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 import Navbar from "./Components/Navbar";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -6,7 +8,7 @@ import { Providers } from "./providers";
 import AppFooter from "./Components/AppFooter";
 import { Box, useMediaQuery } from "@chakra-ui/react";
 import { AppWrapper } from "./Context";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -23,10 +25,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-      <meta name="google-site-verification" content="brnrAvH6YNLyRPlnUkA-3zemJp4es-Q9WvGhuEnt-no" />
+        <meta
+          name="google-site-verification"
+          content="brnrAvH6YNLyRPlnUkA-3zemJp4es-Q9WvGhuEnt-no"
+        />
       </head>
       <body className={inter.className}>
-        <Analytics/>
+        <Analytics />
         <Providers>
           <Navbar />
           <Box h={"1vh"}></Box>
@@ -35,6 +40,11 @@ export default function RootLayout({
           </AppWrapper>
           <AppFooter />
         </Providers>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8960910112911135"
+          crossorigin="anonymous"
+        ></script>
       </body>
     </html>
   );

@@ -31,7 +31,7 @@ export default function Doante() {
   };
   const router = useRouter();
   function submitDoate() {
-    router.push("/AddMore");
+    router.push("/Result");
   }
   return (
     <>

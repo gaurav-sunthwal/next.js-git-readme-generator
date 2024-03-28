@@ -79,6 +79,12 @@ export default function Result() {
           payment[key]
         )})](${payment[key]})\n\n`;
       }
+      else if (key === "paypal") {
+        markdownContent += `[![Paypal](${generateBadgeURL(
+          "paypal",
+          payment[key]
+        )})](${payment[key]})\n\n`;
+      }
     });
 
     return markdownContent;

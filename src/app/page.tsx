@@ -8,6 +8,7 @@ import {
   Heading,
   Text,
   VStack,
+  transform,
   useMediaQuery,
 } from "@chakra-ui/react";
 import Image from "next/image";
@@ -16,7 +17,7 @@ import Link from "next/link";
 import { CiHeart } from "react-icons/ci";
 
 import dots from "../app/Img/worn-dots.png";
-import app from "../app/Img/app.png";
+import app from "../app/Img/homeImg.png";
 export default function Home() {
   const [isGraterthen] = useMediaQuery("(min-width: 1000px)");
 
@@ -35,7 +36,7 @@ export default function Home() {
             <Heading size={"4xl"} color="#10B981">
               README
             </Heading>
-            <Box w={"80%"} p={3}>
+            <Box w={isGraterthen ? "80%" : "100%"} p={3}>
               <Heading color={"#737373"} textAlign={"center"} size={"md"}>
                 Our simple editor allows you to quickly add and customize all
                 the sections you need for your projects readme
@@ -54,24 +55,17 @@ export default function Home() {
                   Get Started
                 </Button>
               </Link>
-              <Button
-                bg={"transparent"}
-                color={"#737373"}
-                border={"1px solid"}
-                _hover={{
-                  background: "transparent",
-                }}
-              >
-                <CiHeart /> <Text> Sponsor</Text>
-              </Button>
             </VStack>
           </VStack>
         </Box>
       </HStack>
-      <VStack justifyContent={"center"} p={3} mt={"10px"}>
-        <Box w={"70%"}>
+      <VStack justifyContent={"center"} p={3} mt={"5px"}>
+        <Card
+          border={"2px solid white"}
+          w={isGraterthen ? "90%" : "100%"}
+        >
           <Image src={app} alt="app" />
-        </Box>
+        </Card>
       </VStack>
     </>
   );

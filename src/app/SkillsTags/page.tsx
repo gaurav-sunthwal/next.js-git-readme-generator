@@ -72,7 +72,13 @@ export default function SkillsTags() {
         <SkillsSec title={`DATABASES`} arrName={Database} />
         <SkillsSec title={"Other"} arrName={other} />
       </Box>
-      <HStack p={2} justifyContent={"center"} flexWrap={"wrap"}>
+      <HStack
+        p={2}
+        justifyContent={"center"}
+        flexWrap={"wrap"}
+        // w={"100%"}
+        // position={"fixed"}
+      >
         {skills.map((item, index) => {
           return (
             <>

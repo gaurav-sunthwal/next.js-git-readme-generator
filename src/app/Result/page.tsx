@@ -275,7 +275,7 @@ function Preview() {
                       ) : key === "kofi" ? (
                         <>
                           <DonateImg
-                            DonateLink={`https://www.kofi.com/${payment[key]}`}
+                            DonateLink={`https://www.ko-fi.com/${payment[key]}`}
                             imgSrc={`https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white`}
                             key={key}
                           />

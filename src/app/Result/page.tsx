@@ -54,7 +54,10 @@ export default function Result() {
     markdownContent += `# 🌐 Socials:\n\n`;
     Object.keys(links).forEach((key) => {
       if (links[key] !== "" && links[key] !== "in/" && links[key] !== "@") {
-        markdownContent += `![${key}](${generateBadgeURL(key, links[key])})\n`;
+        markdownContent += `[![${key}](${generateBadgeURL(
+          key,
+          links[key]
+        )})](https://${key}.com/${links[key]})\n`;
       }
     });
 
@@ -73,17 +76,20 @@ export default function Result() {
     // Add donation section
     markdownContent += `# 💰 You can help me by Donating\n\n`;
     Object.keys(payment).forEach((key) => {
-      if (key === "bmc") {
-        markdownContent += `[![Buy Me a Coffee](${generateBadgeURL(
-          "bmc",
-          payment[key]
-        )})](${payment[key]})\n\n`;
-      }
-      else if (key === "paypal") {
-        markdownContent += `[![Paypal](${generateBadgeURL(
-          "paypal",
-          payment[key]
-        )})](${payment[key]})\n\n`;
+      if (payment[key] !== "") {
+        // markdownContent += `![${key}](${generateBadgeURL(
+        //   key,
+        //   payment[key]
+        // )})\n`;
+        if (key === "paypal") {
+          markdownContent += ` [![${key}](https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white)](https://paypal.me/${payment[key]}) `;
+        } else if (key === "bmc") {
+          markdownContent += ` [![${key}](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/${payment[key]}) `;
+        } else if (key === "kofi") {
+          markdownContent += ` [![${key}](https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white)](https://www.ko-fi.com/${payment[key]}) `;
+        } else if (key === "patreon") {
+          markdownContent += ` [![${key}](https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white)](https://www.patreon.com/${payment[key]}) `;
+        }
       }
     });
 
@@ -245,28 +251,73 @@ function Preview() {
           <Box>
             <Heading p={2}>💰 You can help me by Donating</Heading>
             <hr />
-            <Box p={3}>
+            <HStack p={3}>
               {Object.keys(payment).map((key) => {
                 return (
                   <>
-                    {key === "bmc" ? (
-                      <Link href={payment[key]}>
-                        <Image
-                          src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black"
-                          alt="bmx"
-                        />
-                      </Link>
+                    {payment[key] !== "" ? (
+                      key === "paypal" ? (
+                        <>
+                          <DonateImg
+                            DonateLink={`https://www.paypal.com/paypalme/${payment[key]}`}
+                            imgSrc={`https://img.shields.io/badge/PayPal-00457C?style=for-the-badge&logo=paypal&logoColor=white`}
+                            key={key}
+                          />
+                        </>
+                      ) : key === "bmc" ? (
+                        <>
+                          <DonateImg
+                            DonateLink={`https://www.buymeacoffee.com/${payment[key]}`}
+                            imgSrc={`https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black`}
+                            key={key}
+                          />
+                        </>
+                      ) : key === "kofi" ? (
+                        <>
+                          <DonateImg
+                            DonateLink={`https://www.kofi.com/${payment[key]}`}
+                            imgSrc={`https://img.shields.io/badge/Ko--fi-F16061?style=for-the-badge&logo=ko-fi&logoColor=white`}
+                            key={key}
+                          />
+                        </>
+                      ) : key === "patreon" ? (
+                        <>
+                          <DonateImg
+                            DonateLink={`https://www.patreon.com/${payment[key]}`}
+                            imgSrc={`https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white`}
+                            key={key}
+                          />
+                        </>
+                      ) : (
+                        // Additional conditions can be added here
+                        <>
+                          <h1>Default</h1>
+                        </>
+                      )
                     ) : (
-                      ""
+                      // Handle case when payment[key] is empty
+                      <></>
                     )}
                   </>
                 );
               })}
-            </Box>
+            </HStack>
           </Box>
         </Box>
       </Box>
     </HStack>
+  );
+}
+
+function DonateImg({ imgSrc, key, DonateLink }) {
+  return (
+    <>
+      <Box m={2}>
+        <Link href={DonateLink} target="blank">
+          <Image src={imgSrc} alt={key} />
+        </Link>
+      </Box>
+    </>
   );
 }
 
